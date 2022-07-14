@@ -4,13 +4,25 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import MenuToggle from "./MenuToggle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const NavigationMobile = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleNav = () => {
     setIsNavOpen((prevValue) => !prevValue);
   };
+
+  // don't allow scrolling when nav is open
+  useEffect(() => {
+    if (isNavOpen) {
+      window.document.documentElement.style.overflowY = "hidden";
+      window.document.documentElement.classList.add("lock-screen");
+    } else {
+      window.document.documentElement.style.overflowY = "scroll";
+      window.document.documentElement.classList.remove("lock-screen");
+    }
+  }, [isNavOpen]);
+
   return (
     <header className="w-full p-6 md:hidden block shadow-xl">
       <nav className="w-full max-w-[1200px] flex items-center justify-between mx-auto">
