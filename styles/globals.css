@@ -6,6 +6,7 @@
   @apply bg-primary text-primary duration-150 ease-in;
 }
 
+/* Theme Variables */
 .dark {
   --color-bg-primary: #13171d;
   --color-bg-secondary: #a13737;
@@ -22,4 +23,64 @@
   --color-text-secondary: #3c4555;
   --color-text-accent: #ff7c25;
   --color-text-button: #fbfbfb;
+}
+
+/* Menu Toggle Styles */
+.menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menu-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-toggle span {
+  position: absolute;
+  background: var(--color-text-primary);
+  width: 25px;
+  height: 4px;
+  border-radius: 1rem;
+  transition: transform 0.8s ease;
+}
+
+.menu-toggle:hover span {
+  background-color: var(--color-bg-secondary);
+}
+
+.menu-toggle span:nth-child(1) {
+  transform: translateY(-7px);
+  width: 10px;
+  right: 7.5px;
+}
+
+.menu-toggle span:nth-child(2) {
+  transform: translateY(7px);
+  width: 15px;
+  right: 7.5px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(0) rotate(-315deg);
+  width: 25px;
+  transition-delay: 0.2s;
+}
+
+.menu-toggle.active span:nth-child(2) {
+  transform: translateY(0px) rotate(315deg);
+  width: 25px;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateX(100px);
 }

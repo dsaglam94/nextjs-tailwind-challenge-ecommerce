@@ -1,25 +1,42 @@
 import { GiHoodie } from "react-icons/gi";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import { AiOutlineHeart } from "react-icons/ai";
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 const NavigationDesktop = () => {
   return (
-    <header>
-      <nav>
-        <div>
-          <GiHoodie className="" />
-        </div>
+    <header className="w-full py-6 hidden md:block shadow-xl">
+      <nav className="w-[90%] max-w-[1200px] flex items-center justify-between mx-auto">
+        <Link href="/">
+          <div className="flex items-center gap-1 cursor-pointer">
+            <GiHoodie className="text-accent text-4xl" />
+            <span className="text-lg font-semibold">Hoodier</span>
+          </div>
+        </Link>
+        <ThemeToggle />
+
+        <ul className="flex items-center gap-10">
+          <Link href="/">
+            <li className="font-semibold text-lg capitalize hover:text-accent cursor-pointer">
+              home
+            </li>
+          </Link>
+          <Link href="/favorites">
+            <li className="flex items-center font-semibold text-lg capitalize gap-1 hover:text-accent cursor-pointer">
+              <AiOutlineHeart className="text-2xl" /> favorites
+            </li>
+          </Link>
+          <Link href="/cart">
+            <li className="flex items-center font-semibold text-lg capitalize gap-1 hover:text-accent cursor-pointer group">
+              <RiShoppingCart2Line className="text-2xl" /> Cart
+              <div className="bg-secondary w-8 h-6 rounded-full flex items-center justify-center">
+                <span className="text-sm group-hover:text-buttonText">1</span>
+              </div>
+            </li>
+          </Link>
+        </ul>
       </nav>
-      <ul>
-        <Link href="/">
-          <li>home</li>
-        </Link>
-        <Link href="/">
-          <li>favorite</li>
-        </Link>
-        <Link href="/">
-          <li>Cart</li>
-        </Link>
-      </ul>
     </header>
   );
 };
