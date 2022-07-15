@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaTimes, FaEquals, FaTrash } from "react-icons/fa";
 
-const CartDetails = ({ item, idx }) => {
+const CartDetails = ({ item, idx, removeItemFromLocalStorage }) => {
   return (
     <div
       key={idx}
@@ -39,15 +39,22 @@ const CartDetails = ({ item, idx }) => {
               <span className="text-2xl text-accent font-bold">
                 {item.item_amount}
               </span>
-              <FaTimes className="text-primary" />
+              <div>
+                <FaTimes className="text-primary" />
+              </div>
               <span className="text-2xl text-primary font-bold">{`$${item.discounted_price}`}</span>
-              <FaEquals className="text-primary" />
+              <div>
+                <FaEquals className="text-primary" />
+              </div>
               <span className="text-green-600 font-bold text-2xl">{`$${
                 item.discounted_price * item.item_amount
               }`}</span>
             </div>
           </div>
-          <div className="flex items-center justify-center w-full border-2 border-accent rounded-lg py-4 hover:opacity-90 cursor-pointer">
+          <div
+            onClick={() => removeItemFromLocalStorage(item.id)}
+            className="flex items-center justify-center w-full border-2 border-accent rounded-lg py-4 hover:opacity-90 cursor-pointer"
+          >
             <FaTrash className="text-accent" />
           </div>
         </div>
