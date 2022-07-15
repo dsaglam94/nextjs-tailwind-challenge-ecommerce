@@ -32,7 +32,7 @@ export default function Home() {
   const dispalyedCustomerFavoriteItems = productDetailsData.slice(0, lastItem);
 
   return (
-    <section className="min-h-screen w-full max-w-[1200px] mx-auto py-10 px-6 md:px-0 flex flex-col items-center justify-center">
+    <section className="min-h-screen w-full max-w-[1200px] mx-auto py-10 px-6 lg:px-0 flex flex-col items-center justify-center">
       <div className="w-full flex items-start text-3xl font-bold text-primary">
         <h1>Oversize</h1>
       </div>

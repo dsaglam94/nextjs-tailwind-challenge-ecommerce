@@ -12,11 +12,11 @@ const Products = ({ item }) => {
     <div className="shadow-xl bg-primary rounded-lg overflow-hidden">
       <div className="relative w-full h-[400px]">
         <Image
+          className="object-top sm:object-center md:object-top"
           src={item.image}
           layout="fill"
           alt={item.title}
           objectFit="cover"
-          objectPosition="top"
         />
       </div>
       <div className="p-6">
