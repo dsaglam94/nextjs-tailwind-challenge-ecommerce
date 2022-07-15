@@ -27,10 +27,18 @@ const Products = ({ item }) => {
           </p>
         </div>
         <div className="flex items-center justify-between py-6">
-          <span className="font-bold text-3xl text-primary">{`$${(
-            item.initial_price -
-            handleDiscountedPrice(item.discount_percentage, item.initial_price)
-          ).toFixed(2)}`}</span>
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-3xl text-primary">{`$${(
+              item.initial_price -
+              handleDiscountedPrice(
+                item.discount_percentage,
+                item.initial_price
+              )
+            ).toFixed(2)}`}</span>
+            <div className="bg-secondary text-primary text-sm py-1 px-2 rounded font-bold">
+              <span>%{item.discount_percentage} off</span>
+            </div>
+          </div>
           <span className="text-lg text-secondary opacity-90 line-through">{`$${item.initial_price.toFixed(
             2
           )}`}</span>

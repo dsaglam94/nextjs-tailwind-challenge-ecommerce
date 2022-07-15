@@ -40,6 +40,7 @@ const ProductDetails = ({ productData }) => {
       return alert("Choose the hoodie size!");
     }
     const obj = {
+      id: id,
       image: image,
       title: title,
       description: description,
