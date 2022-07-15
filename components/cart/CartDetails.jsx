@@ -57,7 +57,7 @@ const CartDetails = ({
           </div>
         </div>
         <div>
-          <div className="flex items-center justify-between py-5">
+          <div className="flex items-center justify-between py-5 gap-2">
             <h3 className="text-primary font-bold text-lg">Amount:</h3>
             <div className="flex items-center gap-2">
               <span className="text-2xl text-accent font-bold">

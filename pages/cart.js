@@ -9,7 +9,7 @@ export default function Cart() {
 
   // const [itemNumbersInLocalStorage, setItemNumbersInLocalStorage] = useState(0);
   // get the all related keys from the local storage
-  const getItemAmountFromLocalStorage = () => {
+  const getItemsFromLocalStorage = () => {
     let values = [];
     let keys = Object.keys(localStorage).filter((key) =>
       key.includes("product")
@@ -29,7 +29,7 @@ export default function Cart() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const data = getItemAmountFromLocalStorage();
+      const data = getItemsFromLocalStorage();
       setLocalStorageData(data);
     }, 500);
     return () => clearTimeout(timer);
@@ -38,7 +38,7 @@ export default function Cart() {
 
   // Get the data from the local storage and put it inside a variable
   // to map the data and show the items
-  // const localStorageData = getItemAmountFromLocalStorage();
+  // const localStorageData = getItemsFromLocalStorage();
   const removeItemFromLocalStorage = (id) => {
     let current = {};
     let keys = Object.keys(localStorage).filter((key) =>
