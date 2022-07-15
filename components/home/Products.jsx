@@ -9,10 +9,7 @@ const Products = ({ item }) => {
     return discountedAmount;
   };
   return (
-    <div
-      key={item.id}
-      className="shadow-xl bg-primary rounded-lg overflow-hidden"
-    >
+    <div className="shadow-xl bg-primary rounded-lg overflow-hidden">
       <div className="relative w-full h-[400px]">
         <Image
           src={item.image}

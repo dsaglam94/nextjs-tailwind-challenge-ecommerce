@@ -37,8 +37,8 @@ export default function Home() {
         <h1>Oversize</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 gap-10">
-        {dispalyedCustomerFavoriteItems.map((item) => (
-          <Products item={item} />
+        {dispalyedCustomerFavoriteItems.map((item, idx) => (
+          <Products item={item} key={idx} />
         ))}
       </div>
       <button
