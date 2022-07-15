@@ -79,11 +79,11 @@ const ProductDetails = ({ productData }) => {
           >
             <div className="relative w-full md:w-2/3 h-[600px]">
               <Image
+                className="object-top"
                 src={product.image}
                 alt={product.title}
                 layout="fill"
                 objectFit="cover"
-                objectPosition="top"
               />
             </div>
             <div className="w-full flex flex-col items-center md:items-start">

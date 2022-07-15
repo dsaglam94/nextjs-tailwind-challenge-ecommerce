@@ -30,7 +30,7 @@ const Navigation = () => {
 
   useEffect(() => {
     getItemAmountFromLocalStorage();
-  });
+  }, [itemNumbersInLocalStorage]);
 
   return (
     <>

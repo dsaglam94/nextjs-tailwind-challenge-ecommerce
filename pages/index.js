@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <section className="min-h-screen w-full max-w-[1200px] mx-auto py-10 px-6 lg:px-0 flex flex-col items-center justify-center">
       <div className="w-full flex items-start text-3xl font-bold text-primary">
-        <h1>Oversize</h1>
+        <h1>Oversize Hoodies</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 gap-10">
         {dispalyedCustomerFavoriteItems.map((item, idx) => (

@@ -27,10 +27,7 @@ const NavigationMobile = ({ itemNumbersInLocalStorage }) => {
     <header className="w-full p-6 md:hidden block shadow-xl">
       <nav className="w-full max-w-[1200px] flex items-center justify-between mx-auto">
         <Link href="/">
-          <div
-            onClick={handleNav}
-            className="flex items-center gap-1 cursor-pointer"
-          >
+          <div className="flex items-center gap-1 cursor-pointer">
             <GiHoodie className="text-accent text-4xl" />
             <span className="text-lg font-semibold">Hoodier</span>
           </div>
@@ -39,8 +36,8 @@ const NavigationMobile = ({ itemNumbersInLocalStorage }) => {
         <div
           className={
             isNavOpen
-              ? "absolute w-full h-[89vh] bottom-0 left-0 bg-black/70 duration-150 ease-in overflow-hidden"
-              : "absolute w-full h-[89vh] bottom-0 left-0 bg-black/0 duration-150 ease-in select-none pointer-events-none overflow-hidden"
+              ? "absolute z-10 w-full h-[89vh] bottom-0 left-0 bg-black/70 duration-150 ease-in overflow-hidden"
+              : "absolute z-10 w-full h-[89vh] bottom-0 left-0 bg-black/0 duration-150 ease-in select-none pointer-events-none overflow-hidden"
           }
         >
           <div
