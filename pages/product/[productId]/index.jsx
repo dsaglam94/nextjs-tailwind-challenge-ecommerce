@@ -1,13 +1,11 @@
 import productDetailsData from "../../../components/home/productDetailsData";
+import ProductDetails from "../../../components/productDetails/ProductDetails";
 
-export default function ProductDetailsPage({ data }) {
+export default function ProductDetailsPage({ productData }) {
   return (
-    <div>
-      <h1>hello</h1>
-      {data.map((item) => (
-        <di>{item.title}</di>
-      ))}
-    </div>
+    <section>
+      <ProductDetails productData={productData} />
+    </section>
   );
 }
 
@@ -15,11 +13,13 @@ export const getStaticProps = async (context) => {
   const productId = context.params.productId;
   console.log(productId);
 
-  const data = productDetailsData.filter((item) => item.id === productId);
+  const productData = productDetailsData.filter(
+    (item) => item.id === productId
+  );
 
   return {
     props: {
-      data,
+      productData,
     },
   };
 };

@@ -39,8 +39,8 @@ const NavigationMobile = () => {
         <div
           className={
             isNavOpen
-              ? "absolute w-full h-[89vh] bottom-0 left-0 bg-black/70 duration-150 ease-in"
-              : "absolute w-full h-[89vh] bottom-0 left-0 bg-black/0 duration-150 ease-in select-none pointer-events-none"
+              ? "absolute w-full h-[89vh] bottom-0 left-0 bg-black/70 duration-150 ease-in overflow-hidden"
+              : "absolute w-full h-[89vh] bottom-0 left-0 bg-black/0 duration-150 ease-in select-none pointer-events-none overflow-hidden"
           }
         >
           <div
