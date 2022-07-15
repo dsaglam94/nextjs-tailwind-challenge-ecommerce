@@ -6,8 +6,8 @@ import ThemeToggle from "./ThemeToggle";
 
 const NavigationDesktop = () => {
   return (
-    <header className="w-full py-6 hidden md:block shadow-xl">
-      <nav className="w-[90%] max-w-[1200px] flex items-center justify-between mx-auto">
+    <header className="w-full p-6 hidden md:block shadow-xl">
+      <nav className="w-full max-w-[1200px] flex items-center justify-between mx-auto">
         <Link href="/">
           <div className="flex items-center gap-1 cursor-pointer">
             <GiHoodie className="text-accent text-4xl" />
