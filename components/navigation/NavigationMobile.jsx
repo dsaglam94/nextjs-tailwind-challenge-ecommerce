@@ -5,7 +5,7 @@ import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import MenuToggle from "./MenuToggle";
 import { useEffect, useState } from "react";
-const NavigationMobile = ({ itemNumbersInLocalStorage }) => {
+const NavigationMobile = ({ totalItems }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleNav = () => {
@@ -72,7 +72,7 @@ const NavigationMobile = ({ itemNumbersInLocalStorage }) => {
                   <RiShoppingCart2Line className="text-2xl" /> Cart
                   <div className="bg-secondary w-8 h-6 rounded-full flex items-center justify-center">
                     <span className="text-sm group-hover:text-buttonText">
-                      {itemNumbersInLocalStorage}
+                      {totalItems}
                     </span>
                   </div>
                 </li>

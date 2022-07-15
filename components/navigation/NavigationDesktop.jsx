@@ -4,7 +4,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
-const NavigationDesktop = ({ itemNumbersInLocalStorage }) => {
+const NavigationDesktop = ({ totalItems }) => {
   return (
     <header className="w-full p-6 hidden md:block shadow-xl">
       <nav className="w-full max-w-[1200px] flex items-center justify-between mx-auto">
@@ -32,7 +32,7 @@ const NavigationDesktop = ({ itemNumbersInLocalStorage }) => {
               <RiShoppingCart2Line className="text-2xl" /> Cart
               <div className="bg-secondary w-8 h-6 rounded-full flex items-center justify-center">
                 <span className="text-sm group-hover:text-buttonText">
-                  {itemNumbersInLocalStorage}
+                  {totalItems}
                 </span>
               </div>
             </li>

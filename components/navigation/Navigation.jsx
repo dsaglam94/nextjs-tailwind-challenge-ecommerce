@@ -3,7 +3,7 @@ import NavigationDesktop from "./NavigationDesktop";
 import NavigationMobile from "./NavigationMobile";
 
 const Navigation = () => {
-  const [itemNumbersInLocalStorage, setItemNumbersInLocalStorage] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
   // get the all related keys from the local storage
   const getItemAmountFromLocalStorage = () => {
     let count = 0;
@@ -23,21 +23,18 @@ const Navigation = () => {
     for (let i = 0; i < parsedValues.length; i++) {
       count += parsedValues[i].item_amount;
     }
-    setItemNumbersInLocalStorage(count);
+    setTotalItems(count);
   };
-
-  console.log(itemNumbersInLocalStorage);
 
   useEffect(() => {
     getItemAmountFromLocalStorage();
-  }, [itemNumbersInLocalStorage]);
+    console.log(totalItems);
+  }, [totalItems]);
 
   return (
     <>
-      <NavigationDesktop
-        itemNumbersInLocalStorage={itemNumbersInLocalStorage}
-      />
-      <NavigationMobile itemNumbersInLocalStorage={itemNumbersInLocalStorage} />
+      <NavigationDesktop totalItems={totalItems} />
+      <NavigationMobile totalItems={totalItems} />
     </>
   );
 };

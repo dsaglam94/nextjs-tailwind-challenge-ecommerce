@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CartDetails from "../components/cart/CartDetails";
+import CartCheckout from "../components/cart/CartCheckout";
 
 export default function Cart() {
   const [localStorageData, setLocalStorageData] = useState([]);
   const router = useRouter();
+
   // const [itemNumbersInLocalStorage, setItemNumbersInLocalStorage] = useState(0);
   // get the all related keys from the local storage
   const getItemAmountFromLocalStorage = () => {
@@ -32,12 +34,11 @@ export default function Cart() {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
-  console.log(localStorageData);
+  // console.log(localStorageData);
 
   // Get the data from the local storage and put it inside a variable
   // to map the data and show the items
   // const localStorageData = getItemAmountFromLocalStorage();
-
   const removeItemFromLocalStorage = (id) => {
     let current = {};
     let keys = Object.keys(localStorage).filter((key) =>
@@ -54,6 +55,14 @@ export default function Cart() {
       }
     }
   };
+  // calculate the total amount
+  const amounts = [];
+  for (let i = 0; i < localStorageData.length; i++) {
+    amounts.push(
+      localStorageData[i].discounted_price * localStorageData[i].item_amount
+    );
+  }
+  const totalAmount = amounts.reduce((acc, curr) => acc + curr, 0);
 
   return (
     <section className="min-h-screen w-full max-w-[1200px] mx-auto py-10 px-6 lg:px-0 flex flex-col items-center justify-center">
@@ -66,6 +75,7 @@ export default function Cart() {
             key={idx}
           />
         ))}
+        <CartCheckout totalAmount={totalAmount} />
       </div>
     </section>
   );
