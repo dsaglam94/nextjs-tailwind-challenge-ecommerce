@@ -14,6 +14,7 @@
   --color-text-secondary: #dedede;
   --color-text-accent: #a13737;
   --color-text-button: #fbfbfb;
+  --color-bg-input: #22272e;
 }
 
 .light {
@@ -23,6 +24,15 @@
   --color-text-secondary: #3c4555;
   --color-text-accent: #ff7c25;
   --color-text-button: #fbfbfb;
+  --color-bg-input: #eae6e6;
+}
+
+/* Dont allow to scroll when it's touch screen */
+.lock-screen {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
 }
 
 /* Menu Toggle Styles */

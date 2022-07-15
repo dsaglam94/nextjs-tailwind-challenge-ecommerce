@@ -30,10 +30,6 @@ const CartDetails = ({
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
           <div className="flex items-center gap-2">
             <span>Already completed your purchase?</span>
-            {/* <input
-              onChange={() => completeItemFromLocalStorage(item.id)}
-              type="checkbox"
-            /> */}
             <button
               onClick={() => completeItemFromLocalStorage(item.id)}
               className="bg-secondary p-1 text-buttonText rounded hover:opacity-90"

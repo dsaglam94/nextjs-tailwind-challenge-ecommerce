@@ -1,5 +1,6 @@
 const MenuToggle = ({ isNavOpen, handleClick }) => {
   return (
+    // this is my custom menu bar
     <div onClick={handleClick} className="menu-container cursor-pointer">
       <div
         className={isNavOpen ? "menu-toggle active group" : "menu-toggle group"}

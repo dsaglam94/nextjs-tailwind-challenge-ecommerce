@@ -49,7 +49,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </label>
               <input
                 onChange={(e) => setFullName(e.target.value)}
-                className="border-2 border-accent rounded-lg py-2 px-1 w-full "
+                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full "
                 type="text"
                 id="fullname"
                 placeholder="Enter your full name"
@@ -62,7 +62,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </label>
               <input
                 onChange={(e) => setAddress(e.target.value)}
-                className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="billing_address"
                 placeholder="Enter your address"
@@ -75,7 +75,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </label>
               <input
                 onChange={(e) => setCountry(e.target.value)}
-                className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="country"
                 placeholder="Enter your country"
@@ -88,7 +88,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </label>
               <input
                 onChange={(e) => setCity(e.target.value)}
-                className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="city"
                 placeholder="Enter your city"
@@ -101,7 +101,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </label>
               <input
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="phone_number"
                 placeholder="Enter your phone number"
@@ -112,7 +112,7 @@ const CheckoutForm = ({ totalAmount }) => {
           <div className="flex flex-col gap-5 md:shadow-xl md:p-10 rounded-lg">
             <h3 className="font-bold text-lg">Pay with card</h3>
 
-            <div className="flex flex-col items-center gap-2 py-5">
+            <div className="flex flex-col items-center gap-2 ">
               <div className="flex items-center gap-2">
                 {bankProviders.map((provider, idx) => (
                   <div key={idx} className="relative w-16 h-16">
@@ -132,7 +132,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </label>
               <input
                 onChange={(e) => setCardOwnerName(e.target.value)}
-                className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                className="bg-inputBg bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="card_owner_name"
                 placeholder="Ex. Dogan Saglam"
@@ -145,7 +145,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </label>
               <input
                 onChange={(e) => setCardNumber(e.target.value)}
-                className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="card_number"
                 placeholder="1234 5678 9012 3456"
@@ -160,7 +160,7 @@ const CheckoutForm = ({ totalAmount }) => {
                 </label>
                 <input
                   onChange={(e) => setExpirationDate(e.target.value)}
-                  className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                  className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                   type="text"
                   id="expiration_date"
                   placeholder="18/26"
@@ -174,7 +174,7 @@ const CheckoutForm = ({ totalAmount }) => {
                 </label>
                 <input
                   onChange={(e) => setSecurityCode(e.target.value)}
-                  className="border-2 border-accent rounded-lg py-2 px-1 w-full"
+                  className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                   type="password"
                   id="security_code"
                   placeholder="***"

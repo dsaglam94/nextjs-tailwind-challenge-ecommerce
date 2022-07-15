@@ -13,6 +13,7 @@ const NavigationMobile = ({ totalItems }) => {
   };
 
   // don't allow scrolling when nav is open
+  // both desktop and touch screens
   useEffect(() => {
     if (isNavOpen) {
       window.document.documentElement.style.overflowY = "hidden";

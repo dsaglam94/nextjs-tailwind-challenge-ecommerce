@@ -11,6 +11,7 @@ module.exports = {
         primary: "var(--color-bg-primary)",
         secondary: "var(--color-bg-secondary)",
         buttonBg: "var(--color-bg-secondary)",
+        inputBg: "var(--color-bg-input)",
       },
       textColor: {
         primary: "var(--color-text-primary)",

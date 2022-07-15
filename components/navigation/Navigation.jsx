@@ -29,8 +29,11 @@ const Navigation = () => {
   };
 
   useEffect(() => {
-    getItemAmountFromLocalStorage();
-    console.log(totalItems);
+    const interval = setInterval(() => {
+      getItemAmountFromLocalStorage();
+      console.log(totalItems);
+    }, 1000);
+    return () => clearInterval(interval);
   }, [totalItems]);
 
   return (

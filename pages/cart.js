@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CartDetails from "../components/cart/CartDetails";
 import CartCheckout from "../components/cart/CartCheckout";
+import Meta from "../components/Meta";
 
 export default function Cart() {
   const [localStorageData, setLocalStorageData] = useState([]);
   const router = useRouter();
 
-  // const [itemNumbersInLocalStorage, setItemNumbersInLocalStorage] = useState(0);
   // get the all related keys from the local storage
   const getItemsFromLocalStorage = () => {
     let values = [];
@@ -88,19 +88,22 @@ export default function Cart() {
   const totalAmount = amounts.reduce((acc, curr) => acc + curr, 0);
 
   return (
-    <section className="min-h-screen w-full max-w-[1200px] mx-auto py-10 px-6 lg:px-0 flex flex-col items-center justify-center">
-      <div className="w-full space-y-10">
-        {localStorageData.map((item, idx) => (
-          <CartDetails
-            removeItemFromLocalStorage={removeItemFromLocalStorage}
-            completeItemFromLocalStorage={completeItemFromLocalStorage}
-            item={item}
-            idx={idx}
-            key={idx}
-          />
-        ))}
-        <CartCheckout totalAmount={totalAmount} />
-      </div>
-    </section>
+    <>
+      <Meta title={"Hoodier | Cart"} />
+      <section className="min-h-screen w-full max-w-[1200px] mx-auto py-10 px-6 lg:px-0 flex flex-col items-center justify-center">
+        <div className="w-full space-y-10">
+          {localStorageData.map((item, idx) => (
+            <CartDetails
+              removeItemFromLocalStorage={removeItemFromLocalStorage}
+              completeItemFromLocalStorage={completeItemFromLocalStorage}
+              item={item}
+              idx={idx}
+              key={idx}
+            />
+          ))}
+          <CartCheckout totalAmount={totalAmount} />
+        </div>
+      </section>
+    </>
   );
 }
