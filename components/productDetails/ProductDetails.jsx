@@ -41,6 +41,7 @@ const ProductDetails = ({ productData }) => {
     }
     const obj = {
       id: id,
+      completed: false,
       image: image,
       title: title,
       description: description,

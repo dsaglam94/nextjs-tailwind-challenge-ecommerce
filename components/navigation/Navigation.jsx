@@ -21,7 +21,9 @@ const Navigation = () => {
 
     // add all the items in the local storage to show in cart icon
     for (let i = 0; i < parsedValues.length; i++) {
-      count += parsedValues[i].item_amount;
+      if (!parsedValues[i].completed) {
+        count += parsedValues[i].item_amount;
+      }
     }
     setTotalItems(count);
   };

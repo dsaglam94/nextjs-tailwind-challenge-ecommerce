@@ -1,11 +1,21 @@
 import Image from "next/image";
 import { FaTimes, FaEquals, FaTrash } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
 
-const CartDetails = ({ item, idx, removeItemFromLocalStorage }) => {
+const CartDetails = ({
+  item,
+  idx,
+  removeItemFromLocalStorage,
+  completeItemFromLocalStorage,
+}) => {
   return (
     <div
       key={idx}
-      className="w-full flex flex-col md:flex-row items-center overflow-hidden rounded-lg shadow-xl md:gap-10"
+      className={
+        item.completed
+          ? "w-full flex flex-col md:flex-row items-center overflow-hidden rounded-lg shadow-xl md:gap-10 opacity-50"
+          : "w-full flex flex-col md:flex-row items-center overflow-hidden rounded-lg shadow-xl md:gap-10"
+      }
     >
       <div className="relative w-full h-[500px] md:w-1/3 md:h-[400px]">
         <Image
@@ -18,6 +28,20 @@ const CartDetails = ({ item, idx, removeItemFromLocalStorage }) => {
       </div>
       <div className="w-full flex flex-col items-center md:items-start py-10 md:py-0 gap-10">
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
+          <div className="flex items-center gap-2">
+            <span>Already completed your purchase?</span>
+            {/* <input
+              onChange={() => completeItemFromLocalStorage(item.id)}
+              type="checkbox"
+            /> */}
+            <button
+              onClick={() => completeItemFromLocalStorage(item.id)}
+              className="bg-secondary p-1 text-buttonText rounded hover:opacity-90"
+              aria-label="click to mark your item as completed"
+            >
+              <TiTick />
+            </button>
+          </div>
           <h2 className="text-3xl md:text-5xl font-bold text-primary">
             {item.title}
           </h2>

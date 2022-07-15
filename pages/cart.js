@@ -31,7 +31,7 @@ export default function Cart() {
     const timer = setTimeout(() => {
       const data = getItemAmountFromLocalStorage();
       setLocalStorageData(data);
-    }, 1000);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
   // console.log(localStorageData);
@@ -55,12 +55,35 @@ export default function Cart() {
       }
     }
   };
+
+  const completeItemFromLocalStorage = (id) => {
+    let current = {};
+    let keys = Object.keys(localStorage).filter((key) =>
+      key.includes("product")
+    );
+
+    for (let i = 0; i < keys.length; i++) {
+      current = JSON.parse(localStorage.getItem(keys[i]));
+      if (current.id === id) {
+        console.log(current);
+        console.log(keys[i]);
+        current.completed = !current.completed;
+
+        localStorage.setItem(`product${id}`, JSON.stringify(current));
+
+        // localStorage.removeItem(keys[i]);
+        router.reload();
+      }
+    }
+  };
   // calculate the total amount
   const amounts = [];
   for (let i = 0; i < localStorageData.length; i++) {
-    amounts.push(
-      localStorageData[i].discounted_price * localStorageData[i].item_amount
-    );
+    if (!localStorageData[i].completed) {
+      amounts.push(
+        localStorageData[i].discounted_price * localStorageData[i].item_amount
+      );
+    }
   }
   const totalAmount = amounts.reduce((acc, curr) => acc + curr, 0);
 
@@ -70,6 +93,7 @@ export default function Cart() {
         {localStorageData.map((item, idx) => (
           <CartDetails
             removeItemFromLocalStorage={removeItemFromLocalStorage}
+            completeItemFromLocalStorage={completeItemFromLocalStorage}
             item={item}
             idx={idx}
             key={idx}
