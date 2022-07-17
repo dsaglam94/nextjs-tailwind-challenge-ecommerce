@@ -63,14 +63,6 @@ const ProductDetails = ({ productData }) => {
       return localStorage.setItem(`product${id}`, JSON.stringify(obj));
     }
   };
-
-  //   useEffect(() => {
-  //     const test = localStorage.getItem("product1");
-  //     console.log(test);
-  //     console.log(JSON.parse(test));
-  //     const data = JSON.parse(test);
-  //     setTestImage(data.image);
-  //   }, []);
   return (
     <section className="min-h-screen w-full max-w-[1200px] mx-auto py-10 px-6 md:px-0 flex items-center justify-center">
       <div className="w-full">
@@ -163,7 +155,7 @@ const ProductDetails = ({ productData }) => {
                 </div>
                 <button
                   onClick={() => addToLocalStorage(id)}
-                  className="bg-secondary text-buttonText flex items-center gap-2 font-bold px-6 py-2 rounded-lg hover:opacity-90"
+                  className="flex items-center gap-2 px-6 py-2"
                 >
                   <RiShoppingCart2Line />
                   add to cart

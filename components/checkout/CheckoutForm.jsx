@@ -32,8 +32,8 @@ const CheckoutForm = ({ totalAmount }) => {
   ];
 
   return (
-    <section className="w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center shadow-xl overflow-hidden rounded-lg">
-      <div className="w-full p-10">
+    <section className="w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center">
+      <div className="w-full ">
         <div className="w-full flex flex-col justify-center md:items-start items-center md:justify-start pb-10 gap-5">
           <h2 className="font-bold text-3xl">Payment</h2>
           <h3 className="font-bold text-2xl">
@@ -43,7 +43,7 @@ const CheckoutForm = ({ totalAmount }) => {
         <form className="w-full flex flex-col md:flex-row items-start gap-10">
           <div className="w-full md:w-1/2 space-y-4 md:p-10 md:shadow-xl rounded-lg">
             <h3 className="font-bold text-lg">Billing Address</h3>
-            <div className="w-full flex flex-col items-start gap-2">
+            <div className="label-wrapper">
               <label className="font-semibold" htmlFor="fullname">
                 Full Name:
               </label>
@@ -56,52 +56,48 @@ const CheckoutForm = ({ totalAmount }) => {
                 required
               />
             </div>
-            <div className="w-full flex flex-col items-start gap-2">
+            <div className="label-wrapper">
               <label className="font-semibold" htmlFor="billing_address">
                 Address:
               </label>
               <input
                 onChange={(e) => setAddress(e.target.value)}
-                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="billing_address"
                 placeholder="Enter your address"
                 required
               />
             </div>
-            <div className="w-full flex flex-col items-start gap-2">
+            <div className="label-wrapper">
               <label className="font-semibold" htmlFor="country">
                 Country:
               </label>
               <input
                 onChange={(e) => setCountry(e.target.value)}
-                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="country"
                 placeholder="Enter your country"
                 required
               />
             </div>
-            <div className="w-full flex flex-col items-start gap-2">
+            <div className="label-wrapper">
               <label className="font-semibold" htmlFor="city">
                 City:
               </label>
               <input
                 onChange={(e) => setCity(e.target.value)}
-                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="city"
                 placeholder="Enter your city"
                 required
               />
             </div>
-            <div className="w-full flex flex-col items-start gap-2">
+            <div className="label-wrapper">
               <label className="font-semibold" htmlFor="phone_number">
                 Phone number:
               </label>
               <input
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="phone_number"
                 placeholder="Enter your phone number"
@@ -126,7 +122,7 @@ const CheckoutForm = ({ totalAmount }) => {
               </div>
               <div className="w-full h-[2px] bg-secondary"></div>
             </div>
-            <div className="w-full flex flex-col items-start gap-2">
+            <div className="label-wrapper">
               <label className="font-semibold" htmlFor="card_owner_name">
                 Name of the card owner:
               </label>
@@ -139,13 +135,12 @@ const CheckoutForm = ({ totalAmount }) => {
                 required
               />
             </div>
-            <div className="w-full flex flex-col items-start gap-2">
+            <div className="label-wrapper">
               <label className="font-semibold" htmlFor="card_number">
                 Card number:
               </label>
               <input
                 onChange={(e) => setCardNumber(e.target.value)}
-                className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                 type="text"
                 id="card_number"
                 placeholder="1234 5678 9012 3456"
@@ -154,13 +149,12 @@ const CheckoutForm = ({ totalAmount }) => {
               />
             </div>
             <div className="flex items-center justify-between gap-10">
-              <div className="w-full flex flex-col items-start gap-2">
+              <div className="label-wrapper">
                 <label className="font-semibold" htmlFor="expiration_date">
                   Expiration date:
                 </label>
                 <input
                   onChange={(e) => setExpirationDate(e.target.value)}
-                  className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                   type="text"
                   id="expiration_date"
                   placeholder="18/26"
@@ -168,13 +162,12 @@ const CheckoutForm = ({ totalAmount }) => {
                   maxLength="5"
                 />
               </div>
-              <div className="w-full flex flex-col items-start gap-2">
+              <div className="label-wrapper">
                 <label className="font-semibold" htmlFor="security_code">
                   Security code
                 </label>
                 <input
                   onChange={(e) => setSecurityCode(e.target.value)}
-                  className="bg-inputBg border-2 border-accent rounded-lg py-2 px-1 w-full"
                   type="password"
                   id="security_code"
                   placeholder="***"
@@ -183,9 +176,7 @@ const CheckoutForm = ({ totalAmount }) => {
                 />
               </div>
             </div>
-            <button className="bg-secondary py-4 rounded-lg font-bold text-buttonText hover:opacity-90">
-              Next
-            </button>
+            <button className="py-4">Next</button>
           </div>
         </form>
       </div>

@@ -28,6 +28,10 @@ const Navigation = () => {
     setTotalItems(count);
   };
 
+  // I couldn't find a way to re render the nav component
+  // when the user adds an item to cart
+  // I am not sure if this one is the best practice but I will look for
+  // a better approach and refactor it
   useEffect(() => {
     const interval = setInterval(() => {
       getItemAmountFromLocalStorage();

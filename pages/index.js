@@ -45,7 +45,7 @@ export default function Home() {
           ))}
         </div>
         <button
-          className="bg-secondary px-8 py-3 rounded-lg font-bold text-buttonText disabled:opacity-50 hover:opacity-90"
+          className="px-8 py-3 disabled:opacity-50"
           onClick={handleLoadMore}
         >
           {showLess ? "Show less" : "Load more"}
