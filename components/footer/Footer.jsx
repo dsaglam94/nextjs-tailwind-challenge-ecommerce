@@ -7,6 +7,7 @@ const Footer = () => {
         <div className="flex items-center gap-2">
           <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center text-2xl hover:text-accent duration-150 ease-in cursor-pointer">
             <a
+              aria-label="Github account profile"
               href="https://github.com/dsaglam94"
               target="_blank"
               rel="noreferrer"
@@ -16,6 +17,7 @@ const Footer = () => {
           </div>
           <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center text-2xl hover:text-accent duration-150 ease-in cursor-pointer">
             <a
+              aria-label="Twitter account profile"
               href="https://twitter.com/dsaglam94"
               target="_blank"
               rel="noreferrer"
@@ -25,6 +27,7 @@ const Footer = () => {
           </div>
           <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center text-2xl hover:text-accent duration-150 ease-in cursor-pointer">
             <a
+              aria-label="Linkedin account profile"
               href="https://www.linkedin.com/in/d-saglam"
               target="_blank"
               rel="noreferrer"

@@ -1,10 +1,20 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect, useRef } from "react";
 import { CartLocaleStorage } from "../../context/CartContext";
 
 const Products = ({ item }) => {
+  const buttonRef = useRef();
   const router = useRouter();
   const { calculateDiscountedAmount } = CartLocaleStorage();
+
+  // Makes the order links focusable
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      buttonRef.current.setAttribute("tabindex", "0");
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
@@ -45,10 +55,11 @@ const Products = ({ item }) => {
           )}`}</span>
         </div>
         <div
+          ref={buttonRef}
           onClick={() => router.push(`/product/${item.id}`)}
           className="w-full font-bold text-lg text-buttonText bg-secondary py-4 rounded-lg flex items-center justify-center cursor-pointer hover:opacity-90"
         >
-          <a>Order Now</a>
+          Order Now
         </div>
       </div>
     </div>
