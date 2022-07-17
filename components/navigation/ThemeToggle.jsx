@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { HiSun, HiMoon } from "react-icons/hi";
 import { ThemeContext } from "../../context/ThemeContext";
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ handleNav }) => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (
-    <div className="p-2">
+    <div onClick={handleNav}>
       {theme === "dark" ? (
         <div
           className="flex items-center font-semibold cursor-pointer group"

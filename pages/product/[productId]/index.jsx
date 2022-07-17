@@ -1,5 +1,6 @@
 import productDetailsData from "../../../components/home/productDetailsData";
 import ProductDetails from "../../../components/productDetails/ProductDetails";
+import ProductNotification from "../../../components/productDetails/ProductNotification";
 
 export default function ProductDetailsPage({ productData }) {
   return (

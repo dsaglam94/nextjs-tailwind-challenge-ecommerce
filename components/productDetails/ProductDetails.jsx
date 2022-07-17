@@ -1,17 +1,28 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CartLocaleStorage } from "../../context/CartContext";
 import { ImMinus, ImPlus } from "react-icons/im";
 import { RiShoppingCart2Line } from "react-icons/ri";
+import ProductNotification from "./ProductNotification";
 
 const ProductDetails = ({ productData }) => {
   const { setIsItemAdded, calculateDiscountedAmount } = CartLocaleStorage();
+  const [isItemAddedToCart, setIsItemAddedToCart] = useState(false);
   const [numberOfItems, setNumberOfItems] = useState(1);
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
 
   const { image, title, description } = productData[0];
   const id = productData[0].id;
+
+  // hide the notification after 2seconds
+  useEffect(() => {
+    const counter = setTimeout(() => {
+      setIsItemAddedToCart(false);
+    }, 2000);
+    return () => clearTimeout(counter);
+  }, [isItemAddedToCart]);
+
   const addItem = () => {
     setNumberOfItems(numberOfItems + 1);
   };
@@ -59,6 +70,7 @@ const ProductDetails = ({ productData }) => {
       ).item_amount;
       obj.item_amount += initialAmount;
       setIsItemAdded((prevValue) => !prevValue);
+      setIsItemAddedToCart((prevValue) => !prevValue);
       return localStorage.setItem(`product${id}`, JSON.stringify(obj));
     }
   };
@@ -159,6 +171,7 @@ const ProductDetails = ({ productData }) => {
             </div>
           </div>
         ))}
+        <ProductNotification isItemAddedToCart={isItemAddedToCart} />
       </div>
     </section>
   );

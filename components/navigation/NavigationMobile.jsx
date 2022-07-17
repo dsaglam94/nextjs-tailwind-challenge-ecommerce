@@ -80,7 +80,7 @@ const NavigationMobile = ({ totalItems }) => {
               </Link>
             </ul>
 
-            <ThemeToggle />
+            <ThemeToggle handleNav={handleNav} />
           </div>
         </div>
       </nav>
