@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { CartLocaleStorage } from "../../context/CartContext";
 import { ImMinus, ImPlus } from "react-icons/im";
 import { RiShoppingCart2Line } from "react-icons/ri";
 
 const ProductDetails = ({ productData }) => {
+  const { setIsItemAdded } = CartLocaleStorage();
   const [numberOfItems, setNumberOfItems] = useState(1);
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
@@ -52,6 +54,7 @@ const ProductDetails = ({ productData }) => {
     };
     // if no item in the localstorage with this key
     if (!localStorage.getItem(`product${id}`)) {
+      setIsItemAdded((prevValue) => !prevValue);
       return localStorage.setItem(`product${id}`, JSON.stringify(obj));
     } else {
       // if there is already an item with this key
@@ -60,6 +63,7 @@ const ProductDetails = ({ productData }) => {
         localStorage.getItem(`product${id}`)
       ).item_amount;
       obj.item_amount += initialAmount;
+      setIsItemAdded((prevValue) => !prevValue);
       return localStorage.setItem(`product${id}`, JSON.stringify(obj));
     }
   };
@@ -90,13 +94,9 @@ const ProductDetails = ({ productData }) => {
                 </p>
               </div>
               <div className="flex items-center justify-between md:justify-start md:gap-10 py-6 w-[90%]">
-                <span className="font-bold text-3xl md:text-5xl text-accent">{`$${(
-                  product.initial_price -
-                  handleDiscountedPrice(
-                    product.discount_percentage,
-                    product.initial_price
-                  )
-                ).toFixed(2)}`}</span>
+                <span className="font-bold text-3xl md:text-5xl text-accent">{`$${discountedPrice.toFixed(
+                  2
+                )}`}</span>
                 <span className="text-lg text-secondary md:text-xl opacity-90 line-through">{`$${product.initial_price.toFixed(
                   2
                 )}`}</span>

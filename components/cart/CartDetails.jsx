@@ -1,13 +1,17 @@
+import { CartLocaleStorage } from "../../context/CartContext";
 import Image from "next/image";
 import { FaTimes, FaEquals, FaTrash } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
+import { useEffect } from "react";
 
-const CartDetails = ({
-  item,
-  idx,
-  removeItemFromLocalStorage,
-  completeItemFromLocalStorage,
-}) => {
+const CartDetails = ({ item, idx }) => {
+  const {
+    removeItemFromLocalStorage,
+    completeItemFromLocalStorage,
+    isItemRemoved,
+    isItemCompleted,
+  } = CartLocaleStorage();
+
   return (
     <div
       key={idx}
