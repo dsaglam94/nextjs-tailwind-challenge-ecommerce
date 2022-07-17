@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CartLocaleStorage } from "../../context/CartContext";
 import { ImMinus, ImPlus } from "react-icons/im";
 import { RiShoppingCart2Line } from "react-icons/ri";
 
 const ProductDetails = ({ productData }) => {
-  const { setIsItemAdded } = CartLocaleStorage();
+  const { setIsItemAdded, calculateDiscountedAmount } = CartLocaleStorage();
   const [numberOfItems, setNumberOfItems] = useState(1);
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
@@ -19,16 +19,11 @@ const ProductDetails = ({ productData }) => {
   const leaveItem = () => {
     setNumberOfItems(numberOfItems === 1 ? 1 : numberOfItems - 1);
   };
-  // returns the discounted amount to calculate final discounted price
-  const handleDiscountedPrice = (discountPercentage, initialPrice) => {
-    const discountedAmount = (discountPercentage / 100) * initialPrice;
-    return discountedAmount;
-  };
 
   // returns final discounted price
   const discountedPrice =
     productData[0].initial_price -
-    handleDiscountedPrice(
+    calculateDiscountedAmount(
       productData[0].discount_percentage,
       productData[0].initial_price
     );

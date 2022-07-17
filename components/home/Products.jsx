@@ -1,13 +1,11 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { CartLocaleStorage } from "../../context/CartContext";
 
 const Products = ({ item }) => {
   const router = useRouter();
-  // handle discounting the price
-  const handleDiscountedPrice = (discountPercentage, initialPrice) => {
-    const discountedAmount = (discountPercentage / 100) * initialPrice;
-    return discountedAmount;
-  };
+  const { calculateDiscountedAmount } = CartLocaleStorage();
+
   return (
     <div
       key={item.id}
@@ -33,7 +31,7 @@ const Products = ({ item }) => {
           <div className="flex items-center gap-2">
             <span className="font-bold text-3xl text-primary">{`$${(
               item.initial_price -
-              handleDiscountedPrice(
+              calculateDiscountedAmount(
                 item.discount_percentage,
                 item.initial_price
               )

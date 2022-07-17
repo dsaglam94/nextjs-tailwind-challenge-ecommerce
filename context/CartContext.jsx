@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
-import { useRouter } from "next/router";
 
 export const CartContext = createContext();
 
@@ -9,7 +8,6 @@ export const CartContextProvider = ({ children }) => {
   const [isItemRemoved, setIsItemRemoved] = useState(false);
   const [isItemAdded, setIsItemAdded] = useState(false);
   const [isItemCompleted, setIsItemCompleted] = useState(false);
-  const router = useRouter();
 
   // get the all related keys from the local storage
   const getItemAmountFromLocalStorage = () => {
@@ -115,14 +113,20 @@ export const CartContextProvider = ({ children }) => {
       );
     }
   }
-
   const totalAmount = amounts.reduce((acc, curr) => acc + curr, 0);
+
+  // helper function to calculate the discounted amount
+  const calculateDiscountedAmount = (discountPercentage, initialPrice) => {
+    const discountedAmount = (discountPercentage / 100) * initialPrice;
+    return discountedAmount;
+  };
 
   return (
     <CartContext.Provider
       value={{
         removeItemFromLocalStorage,
         completeItemFromLocalStorage,
+        calculateDiscountedAmount,
         localStorageData,
         totalAmount,
         totalItems,
