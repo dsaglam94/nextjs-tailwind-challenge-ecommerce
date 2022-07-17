@@ -36,7 +36,7 @@ const Products = ({ item }) => {
                 item.initial_price
               )
             ).toFixed(2)}`}</span>
-            <div className="bg-secondary opacity-80 text-primary text-sm py-1 px-2 rounded font-bold">
+            <div className="bg-secondary text-primary text-sm py-1 px-2 rounded font-bold">
               <span>%{item.discount_percentage} off</span>
             </div>
           </div>
