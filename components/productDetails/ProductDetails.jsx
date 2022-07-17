@@ -19,7 +19,8 @@ const ProductDetails = ({ productData }) => {
   useEffect(() => {
     const counter = setTimeout(() => {
       setIsItemAddedToCart(false);
-    }, 2000);
+      console.log("hello");
+    }, 1000);
     return () => clearTimeout(counter);
   }, [isItemAddedToCart]);
 
@@ -61,6 +62,7 @@ const ProductDetails = ({ productData }) => {
     // if no item in the localstorage with this key
     if (!localStorage.getItem(`product${id}`)) {
       setIsItemAdded((prevValue) => !prevValue);
+      setIsItemAddedToCart((prevValue) => !prevValue);
       return localStorage.setItem(`product${id}`, JSON.stringify(obj));
     } else {
       // if there is already an item with this key
