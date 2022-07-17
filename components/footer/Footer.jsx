@@ -20,7 +20,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <FaLinkedinIn />
+              <FaTwitter />
             </a>
           </div>
           <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center text-2xl hover:text-accent duration-150 ease-in cursor-pointer">
@@ -29,7 +29,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <FaTwitter />
+              <FaLinkedinIn />
             </a>
           </div>
         </div>
