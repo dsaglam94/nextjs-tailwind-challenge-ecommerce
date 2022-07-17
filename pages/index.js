@@ -4,7 +4,7 @@ import Products from "../components/home/Products";
 import Meta from "../components/Meta";
 
 export default function Home() {
-  const [lastItem, setLastItem] = useState(3);
+  const [lastItem, setLastItem] = useState(6);
   const [showLess, setShowLess] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function Home() {
     // if all the items in the array are displayed
     // set it back to normal value
     if (showLess) {
-      setLastItem(3);
+      setLastItem(6);
     }
   };
 

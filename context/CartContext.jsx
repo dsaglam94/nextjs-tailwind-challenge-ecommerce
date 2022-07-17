@@ -56,19 +56,19 @@ export const CartContextProvider = ({ children }) => {
     // parse the string into object to grab the values
     const parsedValues = values.map((item) => JSON.parse(item));
     // returning the values in an array to use
-    return parsedValues;
+    // return parsedValues;
+    setLocalStorageData(parsedValues);
   };
 
   // This is important
   // first render the window obj returns undefined
-  // throws an error so I delay it for 500miliseconds to allow CSR
+  // throws an error so I delay it for 100 miliseconds to allow CSR
   useEffect(() => {
     const timer = setTimeout(() => {
-      const data = getItemsFromLocalStorage();
-      setLocalStorageData(data);
-    }, 500);
+      getItemsFromLocalStorage();
+    }, 100);
     return () => clearTimeout(timer);
-  }, [isItemAdded]);
+  }, [isItemAdded, isItemCompleted, isItemRemoved]);
 
   // Remove the specific item from localStorage
   const removeItemFromLocalStorage = (id) => {
@@ -84,7 +84,6 @@ export const CartContextProvider = ({ children }) => {
         console.log(keys[i]);
         localStorage.removeItem(keys[i]);
         setIsItemRemoved((preValue) => !preValue);
-        router.reload();
       }
     }
   };
@@ -103,9 +102,6 @@ export const CartContextProvider = ({ children }) => {
         current.completed = !current.completed;
         setIsItemCompleted((preValue) => !preValue);
         localStorage.setItem(`product${id}`, JSON.stringify(current));
-
-        // localStorage.removeItem(keys[i]);
-        router.reload();
       }
     }
   };
@@ -121,26 +117,6 @@ export const CartContextProvider = ({ children }) => {
   }
 
   const totalAmount = amounts.reduce((acc, curr) => acc + curr, 0);
-
-  //   const [theme, setTheme] = useState(getInitialTheme);
-
-  //   const rawSetTheme = (theme) => {
-  //     const root = window.document.documentElement;
-  //     const isDark = theme === "dark";
-
-  //     root.classList.remove(isDark ? "light" : "dark");
-  //     root.classList.add(theme);
-
-  //     localStorage.setItem("color-theme", theme);
-  //   };
-
-  //   if (initialTheme) {
-  //     rawSetTheme(initialTheme);
-  //   }
-
-  //   useEffect(() => {
-  //     rawSetTheme(theme);
-  //   }, [theme]);
 
   return (
     <CartContext.Provider
