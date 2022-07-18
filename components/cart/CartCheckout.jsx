@@ -1,5 +1,8 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
+
 const CartCheckout = ({ totalAmount }) => {
+  const router = useRouter();
+
   return (
     <section className="shadow-xl rounded-lg py-10 flex flex-col items-center justify-center gap-10">
       {totalAmount === 0 ? (
@@ -14,11 +17,12 @@ const CartCheckout = ({ totalAmount }) => {
           </span>
         </div>
       )}
-      <Link href={totalAmount === 0 ? "/" : "/checkout"}>
-        <a className="bg-secondary px-8 py-3 rounded-lg font-bold text-buttonText hover:opacity-90">
-          {totalAmount === 0 ? "Start Exploring" : "Check Out"}
-        </a>
-      </Link>
+      <button
+        onClick={() => router.push(totalAmount === 0 ? "/" : "/checkout")}
+        className="bg-secondary px-8 py-3 rounded-lg font-bold text-buttonText hover:opacity-90"
+      >
+        {totalAmount === 0 ? "Start Exploring" : "Check Out"}
+      </button>
     </section>
   );
 };

@@ -1,20 +1,25 @@
 import Image from "next/image";
+// import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useRef } from "react";
+// import { useEffect, useRef } from "react";
 import { CartLocaleStorage } from "../../context/CartContext";
 
 const Products = ({ item }) => {
-  const buttonRef = useRef();
+  // const buttonRef = useRef();
   const router = useRouter();
   const { calculateDiscountedAmount } = CartLocaleStorage();
 
+  // changed the div/link to button even it's not recommended to use buttons for page navigation
+  // for the sake of accessibility
+
   // Makes the order links focusable
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      buttonRef.current.setAttribute("tabindex", "0");
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     buttonRef.current.setAttribute("tabindex", "0");
+  //     buttonRef.current.focus();
+  //   }, 100);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <div
@@ -54,13 +59,12 @@ const Products = ({ item }) => {
             2
           )}`}</span>
         </div>
-        <div
-          ref={buttonRef}
+        <button
           onClick={() => router.push(`/product/${item.id}`)}
           className="w-full font-bold text-lg text-buttonText bg-secondary py-4 rounded-lg flex items-center justify-center cursor-pointer hover:opacity-90"
         >
           Order Now
-        </div>
+        </button>
       </div>
     </div>
   );

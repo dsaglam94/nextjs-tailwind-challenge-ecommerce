@@ -70,12 +70,12 @@ const CartDetails = ({ item, idx }) => {
               }`}</span>
             </div>
           </div>
-          <div
+          <button
             onClick={() => removeItemFromLocalStorage(item.id)}
-            className="flex items-center justify-center w-full border-2 border-accent rounded-lg py-4 hover:opacity-90 cursor-pointer"
+            className="bg-transparent flex items-center justify-center w-full border-2 border-accent rounded-lg py-4 hover:opacity-90 cursor-pointer"
           >
             <FaTrash className="text-accent" />
-          </div>
+          </button>
         </div>
       </div>
     </div>

@@ -144,23 +144,23 @@ const ProductDetails = ({ productData }) => {
                   </select>
                 </div>
               </div>
-              <div className="flex items-center py-10">
+              <div className="flex items-center py-10 md:gap-4 w-full md:w-auto px-6 md:px-0 justify-between">
                 <div className="flex items-center">
-                  <div
+                  <button
                     onClick={leaveItem}
-                    className="p-5 text-accent cursor-pointer hover:opacity-90"
+                    className="p-5 bg-transparent text-accent cursor-pointer hover:opacity-90"
                   >
                     <ImMinus />
-                  </div>
+                  </button>
                   <div className="font-bold p-5 text-lg text-primary">
                     <span>{numberOfItems}</span>
                   </div>
-                  <div
+                  <button
                     onClick={addItem}
-                    className="p-5 text-accent cursor-pointer hover:opacity-90"
+                    className="p-5 bg-transparent text-accent cursor-pointer hover:opacity-90"
                   >
                     <ImPlus />
-                  </div>
+                  </button>
                 </div>
                 <button
                   onClick={() => addToLocalStorage(id)}
